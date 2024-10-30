@@ -21,12 +21,12 @@ RETURNING movie_id, title, genre, duration, release_date, rating, description
 `
 
 type CreateMovieParams struct {
-	Title       pgtype.Text
-	Genre       pgtype.Text
-	Duration    pgtype.Int4
-	ReleaseDate pgtype.Date
-	Rating      pgtype.Numeric
-	Description pgtype.Text
+	Title       string
+	Genre       string
+	Duration    int32
+	ReleaseDate pgtype.Timestamptz
+	Rating      float32
+	Description string
 }
 
 func (q *Queries) CreateMovie(ctx context.Context, arg CreateMovieParams) (Movie, error) {
@@ -91,7 +91,7 @@ OFFSET $3
 `
 
 type GetMoviesByGenreParams struct {
-	Genre  pgtype.Text
+	Genre  string
 	Limit  int32
 	Offset int32
 }
@@ -173,12 +173,12 @@ RETURNING movie_id, title, genre, duration, release_date, rating, description
 
 type UpdateMovieParams struct {
 	MovieID     int32
-	Title       pgtype.Text
-	Genre       pgtype.Text
-	Duration    pgtype.Int4
-	ReleaseDate pgtype.Date
-	Rating      pgtype.Numeric
-	Description pgtype.Text
+	Title       string
+	Genre       string
+	Duration    int32
+	ReleaseDate pgtype.Timestamptz
+	Rating      float32
+	Description string
 }
 
 func (q *Queries) UpdateMovie(ctx context.Context, arg UpdateMovieParams) (Movie, error) {

@@ -9,11 +9,11 @@ import (
 )
 
 type Movie struct {
-	MovieID     int32
-	Title       pgtype.Text
-	Genre       pgtype.Text
-	Duration    pgtype.Int4
-	ReleaseDate pgtype.Date
-	Rating      pgtype.Numeric
-	Description pgtype.Text
+	MovieID     int32     `json:"movie_id"`
+	Title       string    `json:"title"`
+	Genre       string    `json:"genre"`
+	Duration    int32     `json:"duration"`
+	ReleaseDate pgtype.Timestamptz `json:"release_date"`
+	Rating      float32   `json:"rating"`
+	Description string    `json:"description"`
 }
